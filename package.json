@@ -1,5 +1,5 @@
 {
-  "name": "ejercicio-5-curso-programacion",
+  "name": "ejercicio-5-curso-de-programacion",
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
@@ -9,7 +9,7 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
-    " ": "testing-library/dom",
+    "@testing-library/dom": "7.26.3",
     "jest": "26.2.2",
     "window-or-global": "1.0.1"
   },
