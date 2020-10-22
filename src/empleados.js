@@ -1,5 +1,5 @@
 // @ts-check
-/** @typedef {Object} EmpleadosArray
+/** @typedef {Object} Empleado
  * @property {String} avatar
  * @property {Number} bank_amount
  * @property {String} birthdate
@@ -9,6 +9,7 @@
  * @property {String} job_title
  * @property {String} last_name
  */
+/** @typedef {Empleado[]} EmpleadosArray */
 export default [
   {
     id: 1,

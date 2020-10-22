@@ -6,6 +6,8 @@ export default function pintarEmpleados(empleados) {
   const empleadosContenedor = document.querySelector(
     ".filter-employees__results"
   );
-  const renderRes = empleados.map((e) => `<div>${e.first_name}</div>`);
-  empleadosContenedor.innerHTML = renderRes.join("\n");
+  const renderRes = empleados.map(
+    (e) => `<div><img src="${e.avatar}" />${e.last_name}, ${e.first_name}</div>`
+  );
+  empleadosContenedor.innerHTML = renderRes.join("");
 }

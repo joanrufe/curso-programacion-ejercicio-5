@@ -1,4 +1,4 @@
-import { fireEvent } from "@testing-library/dom";
+import { fireEvent, getByText } from "@testing-library/dom";
 import app from "./app";
 import empleados from "./empleados";
 
@@ -20,14 +20,27 @@ describe("Pintar empleados", () => {
   test("Debe pintar el nombre de cada empleado", () => {
     const { searchResults } = mockApp();
     empleados.forEach((e) => {
-      expect(searchResults.innerHTML).toContain(e.first_name);
+      expect(getByText(searchResults, e.first_name)).not.toBeNull();
     });
   });
 
   test("Debe pintar el apellido de cada empleado", () => {
     const { searchResults } = mockApp();
     empleados.forEach((e) => {
-      expect(searchResults.innerHTML).toContain(e.last_name);
+      expect(getByText(searchResults, e.last_name)).not.toBeNull();
+    });
+  });
+  test("Debe pintar en que trabaja cada empleado", () => {
+    const { searchResults } = mockApp();
+    empleados.forEach((e) => {
+      expect(getByText(searchResults, e.last_name)).not.toBeNull();
+    });
+  });
+  test("Debe pintar el avatar en un <img>", () => {
+    const { searchResults } = mockApp();
+    empleados.forEach((e) => {
+      const res = searchResults.querySelector(`img[src="${e.avatar}"]`);
+      expect(res).not.toBeNull();
     });
   });
 });

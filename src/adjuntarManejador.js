@@ -6,4 +6,7 @@ import filtrarEmpleados from "./filtrarEmpleados";
  */
 export default function adjuntarManejador(empleados) {
   const empleadosInput = document.querySelector(".filter-employees input");
+  empleadosInput.addEventListener("input", (e) => {
+    filtrarEmpleados(empleados, e.target.value);
+  });
 }
