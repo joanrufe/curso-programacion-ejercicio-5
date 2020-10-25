@@ -9,7 +9,7 @@ export default function pintarEmpleados(empleados) {
   const renderRes = empleados.map(
     (e) =>
       `<div>
-        <img src="${e.avatar}" />
+        <img style="max-width:100px;" src="${e.avatar}" />
         <div>
           <h3>${e.last_name}, ${e.first_name}</h3>
           <p><b>Trabaja como: </b>${e.job_title}</p>
