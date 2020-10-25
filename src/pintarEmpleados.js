@@ -14,8 +14,7 @@ export default function pintarEmpleados(empleados) {
           <h3>${e.last_name}, ${e.first_name}</h3>
           <p><b>Trabaja como: </b>${e.job_title}</p>
           <p><b>Fecha de nacimiento: </b>${e.birthdate}</p>
-          <p><b>Email: </b>${e.email}</p>
-          <p><b>Trabaja como: </b>${e.job_title}</p>
+          <p><b>Email: </b><a href="${e.email}">${e.email}</a></p>
         </div>
       </div>`
   );

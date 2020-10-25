@@ -1,4 +1,4 @@
-import { fireEvent, getByText } from "@testing-library/dom";
+import { fireEvent, getAllByText, getByText } from "@testing-library/dom";
 import app from "./app";
 import empleados from "./empleados";
 
@@ -20,26 +20,30 @@ describe("Pintar empleados", () => {
   test("Debe pintar el nombre de cada empleado", () => {
     const { searchResults } = mockApp();
     empleados.forEach((e) => {
-      expect(getByText(searchResults, e.first_name)).not.toBeNull();
+      const reg = new RegExp(e.first_name, "i");
+      expect(getAllByText(searchResults, reg)).not.toBeNull();
     });
   });
 
   test("Debe pintar el apellido de cada empleado", () => {
     const { searchResults } = mockApp();
     empleados.forEach((e) => {
-      expect(getByText(searchResults, e.last_name)).not.toBeNull();
+      const reg = new RegExp(e.last_name, "i");
+      expect(getAllByText(searchResults, reg)).not.toBeNull();
     });
   });
   test("Debe pintar la ocupacion de cada empleado", () => {
     const { searchResults } = mockApp();
     empleados.forEach((e) => {
-      expect(getByText(searchResults, e.job_title)).not.toBeNull();
+      const reg = new RegExp(e.job_title, "i");
+      expect(getAllByText(searchResults, reg)).not.toBeNull();
     });
   });
   test("Debe pintar la fecha de nacimiento de cada empleado", () => {
     const { searchResults } = mockApp();
     empleados.forEach((e) => {
-      expect(getByText(searchResults, e.birthdate)).not.toBeNull();
+      const reg = new RegExp(e.birthdate, "i");
+      expect(getAllByText(searchResults, reg)).not.toBeNull();
     });
   });
   test("Debe pintar el avatar en un <img>", () => {
