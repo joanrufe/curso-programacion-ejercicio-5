@@ -7,11 +7,6 @@ import pintarEmpleados from "./pintarEmpleados";
  * @param {string} filterValue
  */
 export default function filtrarEmpleados(empleados, filterValue = "") {
-  const filteredEmpl = empleados.filter(
-    (e) =>
-      e.first_name.includes(filterValue) ||
-      e.last_name.includes(filterValue) ||
-      e.job_title.includes(filterValue)
-  );
-  pintarEmpleados(filteredEmpl);
+  // Primero debe filtar los empleados
+  // Despues llamar a pintarEmpleados(empleadosFiltrados);
 }
