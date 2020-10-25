@@ -30,16 +30,29 @@ describe("Pintar empleados", () => {
       expect(getByText(searchResults, e.last_name)).not.toBeNull();
     });
   });
-  test("Debe pintar en que trabaja cada empleado", () => {
+  test("Debe pintar la ocupacion de cada empleado", () => {
     const { searchResults } = mockApp();
     empleados.forEach((e) => {
-      expect(getByText(searchResults, e.last_name)).not.toBeNull();
+      expect(getByText(searchResults, e.job_title)).not.toBeNull();
+    });
+  });
+  test("Debe pintar la fecha de nacimiento de cada empleado", () => {
+    const { searchResults } = mockApp();
+    empleados.forEach((e) => {
+      expect(getByText(searchResults, e.birthdate)).not.toBeNull();
     });
   });
   test("Debe pintar el avatar en un <img>", () => {
     const { searchResults } = mockApp();
     empleados.forEach((e) => {
       const res = searchResults.querySelector(`img[src="${e.avatar}"]`);
+      expect(res).not.toBeNull();
+    });
+  });
+  test("Debe pintar un enlace <a> con atr href igual al email", () => {
+    const { searchResults } = mockApp();
+    empleados.forEach((e) => {
+      const res = searchResults.querySelector(`a[href="${e.email}"]`);
       expect(res).not.toBeNull();
     });
   });
@@ -68,6 +81,18 @@ describe("Filtrar empleados", () => {
         expect(searchResults.innerHTML).toContain(e.last_name);
       } else {
         expect(searchResults.innerHTML).not.toContain(e.last_name);
+      }
+    });
+  });
+  test("Debe filtrar por lugar de trabajo", () => {
+    const { searchResults, searchInput } = mockApp();
+    const searchValue = empleados[1].job_title;
+    fireEvent.input(searchInput, { target: { value: searchValue } });
+    empleados.forEach((e) => {
+      if (e.job_title.includes(searchValue)) {
+        expect(searchResults.innerHTML).toContain(e.job_title);
+      } else {
+        expect(searchResults.innerHTML).not.toContain(e.job_title);
       }
     });
   });
