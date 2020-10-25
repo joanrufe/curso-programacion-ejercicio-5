@@ -16,7 +16,7 @@ export default function pintarEmpleados(empleados) {
           <p><b>Fecha de nacimiento: </b>${e.birthdate}</p>
           <p><b>Email: </b>${e.email}</p>
           <p><b>Trabaja como: </b>${e.job_title}</p>
-
+        </div>
       </div>`
   );
   empleadosContenedor.innerHTML = renderRes.join("");
